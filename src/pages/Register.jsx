@@ -15,7 +15,7 @@ export default function Register(){
                 setError("Sorry! password and confirm password must be the same");
                 return;
             }
-            const res = await axios.post("http://localhost:8080/user/register", {username, password});
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/user/register`, {username, password});
             if(res.status === 200){
                 console.log("successfully registered");
             }

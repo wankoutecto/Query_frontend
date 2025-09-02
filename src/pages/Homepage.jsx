@@ -56,7 +56,7 @@ export default function Homepage() {
     useEffect(() => {
         const fetchQuery = async() => {
             try {
-                const res = await axios.get("http://localhost:8080/query/get/all", 
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/query/get/all`, 
                     {headers: {Authorization: `Bearer ${token}`}}
                 );
                 if(res.status === 200){
@@ -77,7 +77,7 @@ export default function Homepage() {
     const onMarkDone = async(queryId) => {
         try {
             const encodeQueryId = encodeURIComponent(queryId);
-            const res = await axios.post(`http://localhost:8080/query/done/${encodeQueryId}`,
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/query/done/${encodeQueryId}`,
                         {}, 
                         {headers: {Authorization: `Bearer ${token}`}});
             if(res.status  === 200){
@@ -95,7 +95,7 @@ export default function Homepage() {
 
     const onResetAll = async() => {
         try {
-            const res = await axios.post("http://localhost:8080/query/reset/all",
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/query/reset/all`,
                         {}, 
                         {headers: {Authorization: `Bearer ${token}`}});
             if(res.status  === 200){
@@ -116,7 +116,7 @@ export default function Homepage() {
     const onMarkHard = async(queryId) => {
         try {
             const encodeQueryId = encodeURIComponent(queryId);
-            const res = await axios.post(`http://localhost:8080/query/schedule/${encodeQueryId}`,
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/query/schedule/${encodeQueryId}`,
                         {}, 
                         {headers: {Authorization: `Bearer ${token}`}});
             if(res.status  === 200){
@@ -135,7 +135,7 @@ export default function Homepage() {
     const onAddQuery = async(e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`http://localhost:8080/query/add`,
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/query/add`,
                         {question, answer}, 
                         {headers: {Authorization: `Bearer ${token}`}});
             if(res.status  === 200){
