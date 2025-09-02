@@ -7,7 +7,7 @@ export default function App(){
   return (
   <div>
     <Routes>
-      <Route path="/" element={<Navigate to="/homepage" replace />} />
+      <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/register" element={<Register />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/homepage" element={<Homepage />}></Route>
